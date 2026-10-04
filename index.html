@@ -2292,7 +2292,886 @@
       </div>
 
     </section>
+<!-- =========================
+     FEATURED SEO PROJECTS
+========================== -->
 
+<style>
+  .featured-projects{
+    padding:92px 0 96px;
+    background:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .featured-projects::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    left:-220px;
+    top:-220px;
+    background:radial-gradient(
+      circle,
+      rgba(47,125,122,.07),
+      transparent 68%
+    );
+    pointer-events:none;
+  }
+
+  .fp-heading{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 46px;
+  }
+
+  .fp-eyebrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:16px;
+    color:var(--teal);
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+
+  .fp-eyebrow::before,
+  .fp-eyebrow::after{
+    content:"";
+    width:28px;
+    height:1px;
+    background:#cbd8de;
+  }
+
+  .fp-heading h2{
+    margin:0;
+    color:var(--navy);
+    font-size:clamp(34px,4.4vw,54px);
+    line-height:1.08;
+    letter-spacing:-.045em;
+  }
+
+  .fp-heading h2 span{
+    color:var(--teal);
+  }
+
+  .fp-heading p{
+    margin:15px 0 0;
+    color:var(--muted);
+    font-size:16px;
+  }
+
+  .fp-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+
+  .fp-card{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(15,39,70,.055);
+    transition:
+      transform .28s ease,
+      box-shadow .28s ease,
+      border-color .28s ease;
+  }
+
+  .fp-card:hover{
+    transform:translateY(-6px);
+    border-color:#c5d4dd;
+    box-shadow:0 22px 50px rgba(15,39,70,.11);
+  }
+
+  .fp-image{
+    position:relative;
+    height:220px;
+    overflow:hidden;
+    background:var(--soft);
+  }
+
+  .fp-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      to bottom,
+      transparent 58%,
+      rgba(15,39,70,.14)
+    );
+    pointer-events:none;
+  }
+
+  .fp-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    transition:transform .45s ease;
+  }
+
+  .fp-card:hover .fp-image img{
+    transform:scale(1.035);
+  }
+
+  .fp-number{
+    position:absolute;
+    z-index:2;
+    top:16px;
+    left:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:40px;
+    height:30px;
+    padding:0 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);
+    color:var(--navy);
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.08em;
+  }
+
+  .fp-content{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    padding:24px;
+  }
+
+  .fp-category{
+    margin:0 0 7px;
+    color:var(--teal);
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .fp-content h3{
+    margin:0;
+    color:var(--navy);
+    font-size:24px;
+    line-height:1.2;
+    letter-spacing:-.035em;
+  }
+
+  .fp-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    margin-top:22px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  .fp-stat{
+    padding:17px 12px 17px 0;
+  }
+
+  .fp-stat + .fp-stat{
+    border-left:1px solid var(--line);
+    padding-left:17px;
+  }
+
+  .fp-stat strong{
+    display:block;
+    color:var(--navy);
+    font-size:22px;
+    line-height:1.1;
+    letter-spacing:-.035em;
+  }
+
+  .fp-stat span{
+    display:block;
+    margin-top:6px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.45;
+  }
+
+  .fp-result{
+    margin:18px 0 0;
+    color:#596573;
+    font-size:13px;
+    line-height:1.7;
+  }
+
+  .fp-highlight{
+    color:var(--navy);
+    font-weight:750;
+  }
+
+  .fp-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:auto;
+    padding-top:18px;
+  }
+
+  .fp-badge{
+    padding:6px 9px;
+    border-radius:999px;
+    background:#f2f7f6;
+    border:1px solid #dce9e7;
+    color:var(--teal);
+    font-size:10px;
+    line-height:1;
+    font-weight:800;
+  }
+
+  @media(max-width:980px){
+    .fp-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+  }
+
+  @media(max-width:620px){
+    .featured-projects{
+      padding:64px 0 68px;
+    }
+
+    .fp-grid{
+      grid-template-columns:1fr;
+    }
+
+    .fp-image{
+      height:210px;
+    }
+
+    .fp-heading{
+      margin-bottom:32px;
+    }
+
+    .fp-heading h2{
+      font-size:32px;
+    }
+  }
+
+  @media print{
+    .featured-projects{
+      padding:6mm 0;
+    }
+
+    .fp-heading{
+      margin-bottom:4mm;
+    }
+
+    .fp-heading h2{
+      font-size:16pt;
+    }
+
+    .fp-heading p,
+    .fp-eyebrow{
+      display:none;
+    }
+
+    .fp-grid{
+      grid-template-columns:repeat(3,1fr);
+      gap:3mm;
+    }
+
+    .fp-card{
+      border-radius:3mm;
+      box-shadow:none;
+      break-inside:avoid;
+    }
+
+    .fp-image{
+      height:31mm;
+    }
+
+    .fp-content{
+      padding:3.5mm;
+    }
+
+    .fp-content h3{
+      font-size:11pt;
+    }
+
+    .fp-category{
+      font-size:6.5pt;
+    }
+
+    .fp-stat{
+      padding:2.5mm 1mm 2.5mm 0;
+    }
+
+    .fp-stat + .fp-stat{
+      padding-left:2.5mm;
+    }
+
+    .fp-stat strong{
+      font-size:10pt;
+    }
+
+    .fp-stat span,
+    .fp-result{
+      font-size:6.5pt;
+    }
+  }
+</style>
+
+
+<section class="featured-projects" id="featured-projects">
+
+  <div class="wrap">
+
+    <div class="fp-heading reveal">
+
+      <div class="fp-eyebrow">
+        Selected SEO Projects
+      </div>
+
+      <h2>
+        Dự án SEO
+        <span>tiêu biểu</span>
+      </h2>
+
+      <p>
+        Một số kết quả nổi bật từ các dự án
+        trực tiếp triển khai và tối ưu.
+      </p>
+
+    </div>
+
+
+    <div class="fp-grid">
+
+
+      <!-- 01 MG MOTOR -->
+
+      <article class="fp-card reveal">
+
+        <div class="fp-image">
+
+          <span class="fp-number">
+            01
+          </span>
+
+          <img
+            src="mgmotor.png"
+            alt="Dự án SEO MG Motor"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="fp-content">
+
+          <p class="fp-category">
+            Automotive · SEO
+          </p>
+
+          <h3>
+            MG Motor
+          </h3>
+
+
+          <div class="fp-stats">
+
+            <div class="fp-stat">
+
+              <strong>
+                120K
+              </strong>
+
+              <span>
+                Organic Traffic / tháng
+              </span>
+
+            </div>
+
+
+            <div class="fp-stat">
+
+              <strong>
+                100%
+              </strong>
+
+              <span>
+                Keyword mục tiêu Top 1
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p class="fp-result">
+            Đạt
+            <span class="fp-highlight">
+              120.000 organic traffic/tháng
+            </span>
+            với nhóm từ khóa mục tiêu
+            đạt vị trí Top 1.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- 02 VICTORYCONS -->
+
+      <article class="fp-card reveal">
+
+        <div class="fp-image">
+
+          <span class="fp-number">
+            02
+          </span>
+
+          <img
+            src="victoryconsdatgiai.png"
+            alt="Dự án SEO VictoryCons"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="fp-content">
+
+          <p class="fp-category">
+            Construction · SEO
+          </p>
+
+          <h3>
+            VictoryCons
+          </h3>
+
+
+          <div class="fp-stats">
+
+            <div class="fp-stat">
+
+              <strong>
+                8K
+              </strong>
+
+              <span>
+                Organic Traffic / tháng
+              </span>
+
+            </div>
+
+
+            <div class="fp-stat">
+
+              <strong>
+                80%
+              </strong>
+
+              <span>
+                Keyword Top 10
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p class="fp-result">
+            Xây dựng website và hệ thống SEO
+            <span class="fp-highlight">
+              từ con số 0 trong 6 tháng
+            </span>,
+            đạt khoảng 8.000 organic traffic/tháng.
+          </p>
+
+
+          <div class="fp-badges">
+
+            <span class="fp-badge">
+              6 tháng
+            </span>
+
+            <span class="fp-badge">
+              Website from zero
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 03 AZTAX -->
+
+      <article class="fp-card reveal">
+
+        <div class="fp-image">
+
+          <span class="fp-number">
+            03
+          </span>
+
+          <img
+            src="thue.jpg"
+            alt="Dự án SEO AZTAX"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="fp-content">
+
+          <p class="fp-category">
+            Tax & Accounting · SEO
+          </p>
+
+          <h3>
+            AZTAX
+          </h3>
+
+
+          <div class="fp-stats">
+
+            <div class="fp-stat">
+
+              <strong>
+                5K → 60K
+              </strong>
+
+              <span>
+                Organic Traffic / tháng
+              </span>
+
+            </div>
+
+
+            <div class="fp-stat">
+
+              <strong>
+                80%
+              </strong>
+
+              <span>
+                Keyword Top 5
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p class="fp-result">
+            Tăng organic traffic từ
+            <span class="fp-highlight">
+              5.000 lên 60.000/tháng
+            </span>
+            thông qua chiến lược Topical Authority,
+            content và tối ưu SEO tổng thể.
+          </p>
+
+
+          <div class="fp-badges">
+
+            <span class="fp-badge">
+              Topical Authority
+            </span>
+
+            <span class="fp-badge">
+              Content Strategy
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 04 LT PACIFIC -->
+
+      <article class="fp-card reveal">
+
+        <div class="fp-image">
+
+          <span class="fp-number">
+            04
+          </span>
+
+          <img
+            src="nha-o-uc-17.png"
+            alt="Dự án SEO LT Pacific"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="fp-content">
+
+          <p class="fp-category">
+            Real Estate · SEO
+          </p>
+
+          <h3>
+            LT Pacific
+          </h3>
+
+
+          <div class="fp-stats">
+
+            <div class="fp-stat">
+
+              <strong>
+                80%
+              </strong>
+
+              <span>
+                Keyword Top 10
+              </span>
+
+            </div>
+
+
+            <div class="fp-stat">
+
+              <strong>
+                3 tháng
+              </strong>
+
+              <span>
+                Thời gian triển khai
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p class="fp-result">
+            Đưa
+            <span class="fp-highlight">
+              80% nhóm từ khóa mục tiêu vào Top 10
+            </span>
+            chỉ sau 3 tháng tiếp nhận
+            và triển khai dự án.
+          </p>
+
+
+          <div class="fp-badges">
+
+            <span class="fp-badge">
+              Fast Growth
+            </span>
+
+            <span class="fp-badge">
+              Top 10
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 05 KGIN -->
+
+      <article class="fp-card reveal">
+
+        <div class="fp-image">
+
+          <span class="fp-number">
+            05
+          </span>
+
+          <img
+            src="nuoc-hong-sam-kgin.jpg"
+            alt="Dự án SEO KGIN"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="fp-content">
+
+          <p class="fp-category">
+            E-commerce · SEO Recovery
+          </p>
+
+          <h3>
+            KGIN
+          </h3>
+
+
+          <div class="fp-stats">
+
+            <div class="fp-stat">
+
+              <strong>
+                80%
+              </strong>
+
+              <span>
+                Keyword sản phẩm Top 10
+              </span>
+
+            </div>
+
+
+            <div class="fp-stat">
+
+              <strong>
+                HCU
+              </strong>
+
+              <span>
+                Website Recovery
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p class="fp-result">
+            Phục hồi website sau ảnh hưởng của
+            <span class="fp-highlight">
+              Helpful Content Update
+            </span>
+            và cải thiện khả năng xuất hiện
+            của thương hiệu trong AI Overview.
+          </p>
+
+
+          <div class="fp-badges">
+
+            <span class="fp-badge">
+              HCU Recovery
+            </span>
+
+            <span class="fp-badge">
+              AI Overview
+            </span>
+
+            <span class="fp-badge">
+              E-commerce
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 06 NECS -->
+
+      <article class="fp-card reveal">
+
+        <div class="fp-image">
+
+          <span class="fp-number">
+            06
+          </span>
+
+          <img
+            src="kho-necs.jpg"
+            alt="Dự án SEO NECS"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="fp-content">
+
+          <p class="fp-category">
+            B2B Industrial · SEO
+          </p>
+
+          <h3>
+            NECS
+          </h3>
+
+
+          <div class="fp-stats">
+
+            <div class="fp-stat">
+
+              <strong>
+                80%
+              </strong>
+
+              <span>
+                Keyword Top 10
+              </span>
+
+            </div>
+
+
+            <div class="fp-stat">
+
+              <strong>
+                AIO
+              </strong>
+
+              <span>
+                Brand Visibility
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p class="fp-result">
+            Đạt
+            <span class="fp-highlight">
+              80% từ khóa mục tiêu trong Top 10
+            </span>
+            và tăng khả năng thương hiệu
+            được đề xuất trong AI Overview.
+          </p>
+
+
+          <div class="fp-badges">
+
+            <span class="fp-badge">
+              B2B SEO
+            </span>
+
+            <span class="fp-badge">
+              AI Overview
+            </span>
+
+            <span class="fp-badge">
+              Top 10
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- END FEATURED SEO PROJECTS -->
 
     <!-- =========================
          02 BRANDS
