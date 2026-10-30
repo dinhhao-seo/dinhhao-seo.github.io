@@ -1901,6 +1901,197 @@
       }
     }
 
+
+    /* =======================================================
+       CAREER SUMMARY — inspired by compact editorial CV layout
+       Inherits the existing navy / teal portfolio palette.
+    ======================================================= */
+    .career-overview{
+      position:relative;
+      padding:88px 0 94px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(150deg,#f8fafb 0%,#f2f6f8 52%,#fafcfd 100%);
+      scroll-margin-top:90px;
+    }
+    .career-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+      column-gap:38px;
+      align-items:start;
+    }
+    .career-left,.career-right{min-width:0}
+    .career-right{display:grid;gap:25px}
+    .career-block{min-width:0;scroll-margin-top:100px}
+    .career-heading{
+      margin:0 0 20px;
+      color:var(--navy);
+      font-size:clamp(35px,3.8vw,49px);
+      font-weight:850;
+      letter-spacing:-.055em;
+      line-height:1.12;
+    }
+    .career-heading span{color:var(--teal)}
+    .career-card{
+      background:#fff;
+      border:1px solid #dde6e9;
+      border-radius:27px;
+      box-shadow:0 12px 33px rgba(15,39,70,.065);
+    }
+    .career-experience-card{padding:27px 26px 26px 27px}
+    .career-timeline{position:relative;display:grid;gap:0}
+    .career-timeline:before{
+      content:"";
+      position:absolute;
+      left:24px;top:37px;bottom:44px;
+      width:2px;border-radius:2px;
+      background:linear-gradient(var(--teal),#a5d3ce);
+    }
+    .career-entry{
+      position:relative;display:grid;
+      grid-template-columns:54px minmax(0,1fr);
+      column-gap:17px;
+      padding:14px 0 18px;
+    }
+    .career-entry + .career-entry{border-top:1px solid #eaf0f2}
+    .career-entry:last-child{padding-bottom:4px}
+    .career-logo{
+      position:relative;z-index:1;
+      margin-top:3px;
+      width:50px;height:50px;
+      display:flex;align-items:center;justify-content:center;
+      border-radius:12px;
+      background:#eff6f5;border:1px solid #d4e8e5;
+      color:var(--teal);font-size:16px;font-weight:850;
+      letter-spacing:-.055em;line-height:1;
+      box-shadow:0 0 0 5px #fff;
+    }
+    .career-logo.seodo{background:#e5f1ef;color:#186a65}
+    .career-logo.aztax{background:#ecf3fc;color:#2c5d99;border-color:#d9e5f4}
+    .career-logo.lptech{background:#eaf2fb;color:#234b79;border-color:#dce5f0}
+    .career-logo.foogle{background:#fbf2e9;color:#a96d26;border-color:#f3e4d4}
+    .career-role{margin:0;color:var(--navy);font-size:16px;font-weight:850;line-height:1.36}
+    .career-company{margin:4px 0 0;color:var(--teal);font-size:14px;font-weight:800;line-height:1.35}
+    .career-date{margin:4px 0 0;color:#657280;font-size:11px;letter-spacing:.045em;font-weight:800;text-transform:uppercase}
+    .career-description{margin:8px 0 0;color:#546170;font-size:12.5px;line-height:1.62}
+    .career-education-card{display:flex;gap:19px;align-items:center;padding:20px 24px;min-height:126px}
+    .career-education-symbol{
+      flex:0 0 76px;width:76px;height:76px;
+      display:grid;place-items:center;
+      border-radius:16px;border:1px solid #dbe8e9;
+      background:linear-gradient(145deg,#edf5f6,#f7fafb);color:var(--navy);
+    }
+    .career-education-symbol svg{width:49px;height:49px}
+    .career-school{margin:0 0 3px;font-size:15px;line-height:1.32;font-weight:850;color:var(--navy)}
+    .career-degree{margin:0;font-size:13px;color:#455363;font-weight:650}
+    .career-school-meta{margin:5px 0 0;font-size:12px;color:var(--muted)}
+    .career-school-meta b{color:var(--teal);font-weight:850}
+    .career-skill-list{display:flex;flex-wrap:wrap;gap:9px 8px;margin:0;padding:0;list-style:none}
+    .career-skill-list li{
+      border:1px solid #b9c8d0;background:rgba(255,255,255,.82);
+      color:var(--navy);border-radius:11px;padding:7px 11px;
+      font-size:12px;font-weight:650;line-height:1.45;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease;
+    }
+    .career-skill-list li:hover{background:#edf7f5;border-color:var(--teal);transform:translateY(-1px)}
+    .career-tools{
+      display:grid;grid-template-columns:1fr 1fr;gap:16px;
+    }
+    .career-tool-group{min-width:0}
+    .career-tool-group-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .career-tool-emblem{
+      display:flex;align-items:center;justify-content:center;
+      width:37px;height:37px;flex:0 0 37px;
+      border-radius:10px;background:#e2f1ef;color:#207f79;
+    }
+    .career-tool-emblem svg{width:22px;height:22px}
+    .career-tool-group h3{margin:0;font-size:11px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;color:var(--navy)}
+    .career-tool-grid{display:grid;gap:7px}
+    .career-tool{
+      min-width:0;display:flex;align-items:center;gap:9px;
+      min-height:37px;padding:6px 9px;
+      border:1px solid #e0e8ec;background:rgba(255,255,255,.91);
+      border-radius:10px;color:#384758;font-size:11.5px;font-weight:680;line-height:1.35;
+    }
+    .career-tool-mark{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:23px;height:23px;flex:0 0 23px;
+      font-size:10px;font-weight:900;letter-spacing:-.05em;
+      border-radius:6px;color:white;background:#286a91;
+    }
+    .tool-gsc{background:#307dc0}
+    .tool-ahrefs{background:#2861c5}
+    .tool-sf{background:#4d922d}
+    .tool-semrush{background:#ed6b34}
+    .tool-ga4{background:#ed9d23}
+    .tool-gtm{background:#4285f4}
+    .tool-clarity{background:#3682d7}
+    .tool-looker{background:#6a74be}
+    .tool-chatgpt{background:#168c74}
+    .career-tool-group.ai{grid-column:1/-1}
+    .career-tool-group.ai .career-tool-grid{grid-template-columns:1fr 1fr}
+    .career-tool-group.ai .career-tool{min-width:0}
+    .career-tool-desc{font-size:11.5px;color:var(--muted);line-height:1.5}
+    @media(max-width:1020px){
+      .career-grid{grid-template-columns:1fr 1fr;column-gap:22px}
+      .career-experience-card{padding:19px}
+      .career-heading{font-size:39px}
+      .career-timeline:before{left:20px}
+      .career-entry{grid-template-columns:47px 1fr;gap:12px}
+      .career-logo{width:43px;height:43px}
+      .career-tools{grid-template-columns:1fr}
+      .career-tool-group.ai{grid-column:auto}
+      .career-tool-group.ai .career-tool-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .career-overview{padding:62px 0 70px}
+      .career-grid{grid-template-columns:1fr;gap:35px}
+      .career-heading{font-size:38px;margin-bottom:17px}
+      .career-right{gap:27px}
+      .career-experience-card{padding:19px 20px}
+      .career-tools{grid-template-columns:1fr 1fr}
+      .career-tool-group.ai{grid-column:1/-1}
+      .career-tool-group.ai .career-tool-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){
+      .career-heading{font-size:35px}
+      .career-education-card{padding:17px;gap:13px}
+      .career-education-symbol{width:59px;height:59px;flex-basis:59px}
+      .career-education-symbol svg{width:41px;height:41px}
+      .career-school{font-size:13.5px}
+      .career-degree{font-size:12px}
+      .career-school-meta{font-size:11px}
+      .career-tools{grid-template-columns:1fr;gap:15px}
+      .career-tool-group.ai{grid-column:auto}
+      .career-tool-group.ai .career-tool-grid{grid-template-columns:1fr}
+    }
+    @media print{
+      /* The original detailed CV sections remain the PDF source. */
+      .career-overview{display:none!important}
+    }
+
+    /* Company, university and product images from verified image URLs.
+       Each symbol keeps a text fallback if a remote server blocks requests. */
+    .career-logo,.career-tool-mark,.career-education-symbol{overflow:hidden;isolation:isolate}
+    .career-logo img,.career-tool-mark img,.career-education-symbol img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+      background:#fff;display:block;opacity:0;transition:opacity .2s ease;
+    }
+    .career-logo{position:relative;padding:4px;background:#fff!important}
+    .career-logo img{inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);border-radius:7px}
+    .career-logo .career-image-fallback{display:block;line-height:1.1}
+    .career-education-symbol{position:relative;background:#fff}
+    .career-education-symbol img{inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:cover;object-position:center 23%;border-radius:11px}
+    .career-school-fallback{font-size:20px;font-weight:850;color:var(--navy)}
+    .career-tool-mark{
+      position:relative;overflow:hidden;
+      background:#f6f9fb!important;color:var(--navy);
+      border:1px solid #e4eaed;border-radius:6px;
+    }
+    .career-tool-mark img{inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:3px;background:#f6f9fb}
+    @media print{
+      .career-logo img,.career-tool-mark img,.career-education-symbol img{print-color-adjust:exact}
+    }
+
   </style>
 </head>
 
@@ -1941,7 +2132,7 @@
           Brands đã từng hợp tác
         </a>
 
-        <a href="#experience">
+        <a href="#career-experience">
           Kinh nghiệm
         </a>
 
@@ -1949,11 +2140,11 @@
           Dự án
         </a>
 
-        <a href="#skills">
+        <a href="#career-skills">
           Kỹ năng
         </a>
 
-        <a href="#education">
+        <a href="#career-education">
           Học vấn
         </a>
       </div>
@@ -2075,7 +2266,7 @@
 
         <a
           class="btn btn-primary"
-          href="#experience"
+          href="#career-experience"
         >
           Xem kinh nghiệm
           <span>↘</span>
@@ -2196,6 +2387,136 @@
   </div>
 
 </header>
+
+    <!-- ======================================================
+         CAREER & EXPERTISE — compact summary beneath the hero
+         Full sections below are kept for the detailed CV.
+    ======================================================= -->
+    <section class="career-overview" id="career" aria-label="Tóm tắt kinh nghiệm, học vấn, kỹ năng và công cụ SEO">
+      <div class="wrap career-grid">
+        <div class="career-left career-block" id="career-experience">
+          <h2 class="career-heading reveal">Experience<span>.</span></h2>
+          <div class="career-card career-experience-card reveal">
+            <div class="career-timeline">
+              <article class="career-entry">
+                <div class="career-logo seodo" aria-hidden="true"><span class="career-image-fallback">S.</span><img src="https://cdn.joywork.vn/companies/cmpamtq6s00l9ms1bt4nsgmbc/logo/62027cc1-3196-40f1-8907-dec20bd0185c.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></div>
+                <div>
+                  <h3 class="career-role">SEO Specialist</h3>
+                  <p class="career-company">SEODO Agency</p>
+                  <p class="career-date">07/2024 – Hiện tại</p>
+                  <p class="career-description">Quản lý và triển khai SEO tổng thể đa lĩnh vực; chịu trách nhiệm KPI, tối ưu hiệu suất và hướng dẫn SEO Junior.</p>
+                </div>
+              </article>
+              <article class="career-entry">
+                <div class="career-logo aztax" aria-hidden="true"><span class="career-image-fallback">AZ</span><img src="https://aztax.com.vn/wp-content/uploads/2017/07/logo-aztax-white.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></div>
+                <div>
+                  <h3 class="career-role">SEO Executive</h3>
+                  <p class="career-company">AZTAX</p>
+                  <p class="career-date">06/2023 – 05/2024</p>
+                  <p class="career-description">Triển khai Topical Authority, bản đồ chủ đề, chiến lược nội dung, On-page, Off-page và SEO Audit.</p>
+                </div>
+              </article>
+              <article class="career-entry">
+                <div class="career-logo lptech" aria-hidden="true"><span class="career-image-fallback">LP</span><img src="https://www.google.com/s2/favicons?domain=lptech.asia&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></div>
+                <div>
+                  <h3 class="career-role">SEO Executive</h3>
+                  <p class="career-company">LP TECH</p>
+                  <p class="career-date">02/2023 – 05/2023</p>
+                  <p class="career-description">Nghiên cứu từ khóa, tối ưu SEO Content, Internal Linking và theo dõi hiệu suất website.</p>
+                </div>
+              </article>
+              <article class="career-entry">
+                <div class="career-logo foogle" aria-hidden="true"><span class="career-image-fallback">F.</span><img src="https://s3.amazonaws.com/mobileappdaily/mad/uploads/company_profile_logo_mad_img_1756463751.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></div>
+                <div>
+                  <h3 class="career-role">SEO Intern</h3>
+                  <p class="career-company">Foogle SEO</p>
+                  <p class="career-date">10/2022 – 01/2023</p>
+                  <p class="career-description">Viết nội dung chuẩn SEO, tối ưu hình ảnh, hỗ trợ phân phối nội dung và triển khai backlink Web 2.0.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-right">
+          <div class="career-block" id="career-education">
+            <h2 class="career-heading reveal">Education<span>.</span></h2>
+            <div class="career-card career-education-card reveal">
+              <div class="career-education-symbol" aria-hidden="true">
+                <span class="career-school-fallback">HUB</span>
+                <img src="https://hrm.hub.edu.vn/Images/login_BUH.png" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'">
+              </div>
+              <div>
+                <h3 class="career-school">Đại học Ngân hàng TP.HCM</h3>
+                <p class="career-degree">Digital Marketing</p>
+                <p class="career-school-meta">Tốt nghiệp 2023 <span aria-hidden="true">·</span> <b>GPA 3.2</b></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="career-block" id="career-skills">
+            <h2 class="career-heading reveal">Skills<span>.</span></h2>
+            <ul class="career-skill-list reveal" aria-label="Kỹ năng SEO chuyên môn">
+              <li>SEO Strategy &amp; Planning</li>
+              <li>Semantic SEO &amp; Topical Authority</li>
+              <li>Technical SEO</li>
+              <li>AI Search Optimization (GEO/AEO)</li>
+              <li>Content Strategy &amp; E-E-A-T</li>
+              <li>SEO Data Analytics</li>
+              <li>AI Automation &amp; Workflow</li>
+              <li>Digital PR &amp; Link Building</li>
+            </ul>
+          </div>
+
+          <div class="career-block" id="career-tools">
+            <h2 class="career-heading reveal">Tools<span>.</span></h2>
+            <div class="career-tools reveal">
+              <div class="career-tool-group">
+                <div class="career-tool-group-head">
+                  <span class="career-tool-emblem" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="10" r="6"/><path d="m14.5 14.5 5 5M7 12l2-3 2 2 2-4"/></svg>
+                  </span>
+                  <h3>SEO &amp; Research</h3>
+                </div>
+                <div class="career-tool-grid">
+                  <div class="career-tool"><span class="career-tool-mark tool-gsc" aria-hidden="true"><span class="career-image-fallback">G</span><img src="https://www.google.com/s2/favicons?domain=search.google.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Google Search Console</div>
+                  <div class="career-tool"><span class="career-tool-mark tool-ahrefs" aria-hidden="true"><span class="career-image-fallback">a</span><img src="https://www.google.com/s2/favicons?domain=ahrefs.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Ahrefs</div>
+                  <div class="career-tool"><span class="career-tool-mark tool-sf" aria-hidden="true"><span class="career-image-fallback">SF</span><img src="https://www.google.com/s2/favicons?domain=screamingfrog.co.uk&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Screaming Frog</div>
+                  <div class="career-tool"><span class="career-tool-mark tool-semrush" aria-hidden="true"><span class="career-image-fallback">S</span><img src="https://www.google.com/s2/favicons?domain=semrush.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Semrush</div>
+                </div>
+              </div>
+              <div class="career-tool-group">
+                <div class="career-tool-group-head">
+                  <span class="career-tool-emblem" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V12M10 20V5M16 20v-9M22 20V8"/></svg>
+                  </span>
+                  <h3>Analytics &amp; Tracking</h3>
+                </div>
+                <div class="career-tool-grid">
+                  <div class="career-tool"><span class="career-tool-mark tool-ga4" aria-hidden="true"><span class="career-image-fallback">4</span><img src="https://www.google.com/s2/favicons?domain=analytics.google.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Google Analytics 4 (GA4)</div>
+                  <div class="career-tool"><span class="career-tool-mark tool-gtm" aria-hidden="true"><span class="career-image-fallback">T</span><img src="https://www.google.com/s2/favicons?domain=tagmanager.google.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Google Tag Manager (GTM)</div>
+                  <div class="career-tool"><span class="career-tool-mark tool-clarity" aria-hidden="true"><span class="career-image-fallback">C</span><img src="https://www.google.com/s2/favicons?domain=clarity.microsoft.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Microsoft Clarity</div>
+                  <div class="career-tool"><span class="career-tool-mark tool-looker" aria-hidden="true"><span class="career-image-fallback">L</span><img src="https://www.google.com/s2/favicons?domain=lookerstudio.google.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>Looker Studio</div>
+                </div>
+              </div>
+              <div class="career-tool-group ai">
+                <div class="career-tool-group-head">
+                  <span class="career-tool-emblem" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m12 2 1.6 7.4L21 12l-7.4 2.6L12 22l-1.6-7.4L3 12l7.4-2.6L12 2Z"/></svg>
+                  </span>
+                  <h3>AI &amp; Workflow</h3>
+                </div>
+                <div class="career-tool-grid">
+                  <div class="career-tool"><span class="career-tool-mark tool-chatgpt" aria-hidden="true"><span class="career-image-fallback">AI</span><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.style.opacity='1'" onerror="this.style.display='none'"></span>ChatGPT / AI Tools</div>
+                  <span class="career-tool-desc">AI hỗ trợ nghiên cứu, tối ưu và tự động hóa quy trình SEO.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 <!-- =========================
      FEATURED SEO PROJECTS
 ========================== -->
@@ -4058,7 +4379,10 @@
             </p>
 
             <p>
-              2020 – 2023
+              Digital Marketing · 2020 – 2023
+            </p>
+            <p>
+              <strong>GPA 3.2</strong> · Tốt nghiệp năm 2023
             </p>
 
           </div>
@@ -4371,7 +4695,7 @@
     const sections =
       [
         ...document.querySelectorAll(
-          'main section[id]'
+          'main section[id], .career-overview .career-block[id]'
         )
       ];
 
@@ -4398,7 +4722,7 @@
                     a.classList.toggle(
                       'active',
                       a.getAttribute('href') ===
-                      '#' + entry.target.id
+                      '#' + ({ experience:'career-experience', skills:'career-skills', education:'career-education', career:'career-experience' }[entry.target.id] || entry.target.id)
                     );
 
                   }
